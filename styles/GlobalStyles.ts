@@ -1,31 +1,31 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  * {
-        font-family: 'Roboto' !important;
+   * {
+        font-family: Roboto-Regular !important;
         box-sizing: border-box;
     }
 
     body {
         margin: 0;
+        box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-    }
-
-
-    button{
-        font-weight: 600 !important;
     }
 
     th {
         font-weight: 600 !important;
         white-space: normal ;
     }
-
-    div {
-        font-weight: 500 !important;
+    input{
+        text-transform:uppercase;
     }
-
+    .css-ylvk31-menu{
+    text-transform:uppercase;
+}
+    .css-16s9ooq-singleValue{
+        text-transform:uppercase;
+    }
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
     }
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
     .ant-modal-title {
         font-weight: bold !important;
-        font-size: 22px !important;
+        font-size: 20px !important;
     }
 
     .ant-modal-header {
@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
         width: 20%;
     }
 
+    
 `
 
 export default GlobalStyle

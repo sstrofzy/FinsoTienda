@@ -14,6 +14,8 @@ export const SideBarComponent: FC<TSideBarV> = ({ showAside }: TSideBarV) => {
     //call to route
     const ModuleRoutes = getModulesRoutes()
 
+    console.log(router.pathname.split('/')[1])
+
     return (
         <ContainerAside show={showAside}>
             <TopSection>
@@ -27,16 +29,20 @@ export const SideBarComponent: FC<TSideBarV> = ({ showAside }: TSideBarV) => {
                     <ImgProfile src='/aside/logo.png' alt='img'/>
                 </SectionImg>
                 <ContentOptions>
-                    {ModuleRoutes.map((route: any, i:number) => <Link key={`routes${i}`} href={route.path} passHref>
-                        <a style={{ textDecoration: 'none', width: '100%' }}>
-                            <NavigationLink isActive={router.pathname === route?.path} show={showAside}>
-                                { route && <Icon isActive={router.pathname === route?.path} icon={route?.icon} size="xs"/>}
-                                <TextNav isActive={router.pathname === route?.path} showAside={showAside}>
-                                    {route?.name}
-                                </TextNav>
-                            </NavigationLink>
-                        </a>
-                    </Link>
+                    {ModuleRoutes.map((route: any, i:number) => { 
+                       const isActive = router.pathname.split('/')[1] === route?.path.split('/')[1]
+                       return( 
+                            <Link key={`routes${i}`} href={route.path} passHref>
+                                <a style={{ textDecoration: 'none', width: '100%' }}>
+                                    <NavigationLink isActive={isActive} show={showAside}>
+                                        { route && <Icon isActive={isActive} icon={route?.icon} size="xs"/>}
+                                        <TextNav isActive={isActive} showAside={showAside}>
+                                            {route?.name}
+                                        </TextNav>
+                                    </NavigationLink>
+                                </a>
+                            </Link>
+                    )}
                     )}
                 </ContentOptions>
                 <SectionBottom>

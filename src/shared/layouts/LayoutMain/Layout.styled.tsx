@@ -13,15 +13,17 @@ export const Main = styled.div`
     transition: .5s;
     grid-template-areas: 
     "header header" 
-    "aside children";
+    "children children";
     grid-template-rows: minmax(min-content, 1px) 1fr;
-    grid-template-columns: 184px 1fr;
+    grid-template-columns:1fr;
 `
-export const ChildrenBox = styled.div`
+export const ChildrenBox = styled.div<{active?:boolean}>`
     grid-area: children;
     overflow:auto;
     width:100%;
     height:100%;
+    padding-left:184px;
+    padding-right:${({active})=> active ? '184px' : '0px' };
     display:flex;
     justify-content:center;
     align-items:center;

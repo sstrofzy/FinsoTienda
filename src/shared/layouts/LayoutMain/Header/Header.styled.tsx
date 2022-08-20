@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-export const Header = styled.header`
+export const Header = styled.header<{active?:boolean}>`
     grid-area: header;
     width: 100%;
     display: flex;
-    padding:10px 0px 0px 187px;
+    padding-left:184px;
+    padding-right:${({active})=> active ? '184px' : '0px' };
     height:120px;
     flex-direction: row;
     background: transparent linear-gradient(180deg, #FF885C 0%, #FF5353 100%) 0% 0% no-repeat padding-box;

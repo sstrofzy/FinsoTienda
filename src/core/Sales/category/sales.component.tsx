@@ -4,10 +4,7 @@ import React, { FC, useState } from 'react'
 import { Card, Container, Content, Section, TitleCard } from './sales.styled'
 import { nanoid } from 'nanoid';
 
-export const SalesComponent: FC<any> = () => {
-
-//custom state
-const [category] = useState([
+const CATEGORY = [
   {
     id: nanoid(8),
     name:'Bebidas y Refresco',
@@ -28,14 +25,23 @@ const [category] = useState([
     id: nanoid(8),
     name:'Carnes Frías y Embutidos',
   },
-])
+]
 
+export const SalesComponent: FC<any> = () => {
 
-const router = useRouter()
-console.log(router)
+  //custom state
+  const router = useRouter()
+  
+  const [category, setCategory] = useState(CATEGORY)
+
+const searchItems = (query: string) => {
+  const NewArray =  CATEGORY.filter(x => x.name.toLowerCase().indexOf(query.toLowerCase()) > -1)
+  setCategory(NewArray)
+}
+
   return (
     <Container>
-      <SearchBar />
+      <SearchBar onClick={searchItems} />
       <Content>
        {category?.map((x:any, i:number ) =>  <Card onClick={()=> router.push(`${router?.pathname}/${x?.id}`)} key={`CardContent${i}`}>
             <Section bgColor='#fff' height='75%'>

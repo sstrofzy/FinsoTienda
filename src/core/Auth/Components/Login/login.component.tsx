@@ -12,7 +12,7 @@ export const LoginComponent = () => {
     <AuthComponent>
         <Container>
           <BoxInput>
-            <Input placeholder='Email de usuario' />
+            <Input placeholder='Nombre de usuario' />
             <Icon icon='at' />
           </BoxInput>
           <BoxInput>

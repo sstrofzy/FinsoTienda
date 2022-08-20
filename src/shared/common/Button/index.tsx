@@ -5,10 +5,11 @@ export const CustomButton: FC<any> = ({
     bgColor,
     TextButton,
     type,
-    onClick
+    onClick,
+    disabled
 }: any) => {
   return (
-    <Container onClick={onClick} type={type} bgColor={bgColor}>
+    <Container disabled={disabled} onClick={()=> onClick()} type={type} bgColor={bgColor}>
         {TextButton}
     </Container>
   )

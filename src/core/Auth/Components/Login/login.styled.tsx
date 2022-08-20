@@ -27,22 +27,22 @@ export const Icon = styled(FontAwesomeIcon)`
     cursor: pointer;
 `
 export const Input = styled.input`
-    display:flex;
+display:flex;
     border: 2px solid rgb(255, 255, 255, 0);
     transition: border 0.2s ease-in-out;
     color: #90a4ae;
     border-radius:5px;
-    background-color:#fff;
+    background-color:transparent;
     outline: none;
-    border:1px solid #d2d2d2;
+    border:1px solid #fff;
     height:50px;
     padding: 0px 12px;
-    :hover{
-        border: 2px solid #fff;
-    }
     &:focus {
         border: 2px solid #fff;
     }
+    ::placeholder {
+        color: #fff;
+}
 `
 export const ButtonIn = styled.button`
     display:flex;
